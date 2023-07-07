@@ -1,0 +1,117 @@
+[
+  {
+    "name": "Arlan",
+    "bio": "Peppy's emergency contact",
+    "imageSrc": "/assets/img/arlan.png"
+  },
+  {
+    "name": "Asta",
+    "bio": "I shouldn't buy anymore stuff...",
+    "imageSrc": "/assets/img/asta.png"
+  },
+  {
+    "name": "Dan Heng",
+    "bio": "For anything related to the data bank, come find me.",
+    "imageSrc": "/assets/img/danheng.png"
+  },
+  {
+    "name": "Herta",
+    "bio": "This account is disabled",
+    "imageSrc": "/assets/img/herta.png"
+  },
+  {
+    "name": "Hook",
+    "bio": "Moles! Assemble at the Fight Club!",
+    "imageSrc": "/assets/img/hook.png"
+  },
+  {
+    "name": "March 7th",
+    "bio": "Today is also March 7th~",
+    "imageSrc": "/assets/img/march7th.png"
+  },
+  {
+    "name": "Natasha",
+    "bio": "Doing outpatient runs at the Robot Settlement. Check my availability before you visit",
+    "imageSrc": "/assets/img/natasha.png"
+  },
+  {
+    "name": "Pela",
+    "bio": "Please include your name when providing information",
+    "imageSrc": "/assets/img/pela.png"
+  },
+  {
+    "name": "Qingque",
+    "bio": "Go ahead and work, just don't interrupt my game",
+    "imageSrc": "/assets/img/qingque.png"
+  },
+  {
+    "name": "Sampo",
+    "bio": "Certified ancient relic agent",
+    "imageSrc": "/assets/img/sampo.png"
+  },
+  {
+    "name": "Serval",
+    "bio": "Lacking sleep and inspiration",
+    "imageSrc": "/assets/img/serval.png"
+  },
+  {
+    "name": "Sushang",
+    "bio": "What illness makes you sleepy as soon as you read a book?",
+    "imageSrc": "/assets/img/sushang.png"
+  },
+  {
+    "name": "Tingyun",
+    "bio": "Let's talk it out and not fight~",
+    "imageSrc": "/assets/img/tingyun.png"
+  },
+  {
+    "name": "Bailu",
+    "bio": "Drink more warm water and get fewer tempers!",
+    "imageSrc": "/assets/img/bailu.png"
+  },
+  {
+    "name": "Bronya",
+    "bio": "In a meeting",
+    "imageSrc": "/assets/img/bronya.png"
+  },
+  {
+    "name": "Clara",
+    "bio": "I want to go on a picnic with everyone (>▽<)",
+    "imageSrc": "/assets/img/clara.png"
+  },
+  {
+    "name": "Gepard",
+    "bio": "Working, apologies for the slow response",
+    "imageSrc": "/assets/img/gepard.png"
+  },
+  {
+    "name": "Himeko",
+    "bio": "I can survive without water, but coffee is my lifeblood",
+    "imageSrc": "/assets/img/himeko.png"
+  },
+  {
+    "name": "Jing Yuan",
+    "bio": "I'm not at the Seat of Divine Foresight",
+    "imageSrc": "/assets/img/jingyuan.png"
+  },
+  {
+    "name": "Seele",
+    "bio": "If you have anything to say, spill it!",
+    "imageSrc": "/assets/img/seele.png"
+  },
+  {
+    "name": "Silver Wolf",
+    "bio": "Don't make a game if you don't know how to",
+    "imageSrc": "/assets/img/silverwolf.png"
+  },
+  {
+    "name": "Welt",
+    "bio": "Everyone on the Express, please constantly keep in touch",
+    "imageSrc": "/assets/img/welt.png"
+  },
+  {
+    "name": "Yanqing",
+    "bio": "Did the Artisanship Commission have new products today? No",
+    "imageSrc": "/assets/img/yanqing.png"
+  }
+]

@@ -3,7 +3,8 @@ import { faGear } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SidebarDrawer } from './SidebarDrawer'
 
-export function Navbar() {
+export function Navbar({ chatData, setChatData, triggerRerender }:
+    { chatData: ChatData, setChatData: React.Dispatch<any>, triggerRerender: () => void }) {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -12,6 +13,6 @@ export function Navbar() {
         <Box className='block lg:hidden'>
             <Button onClick={onOpen}><FontAwesomeIcon icon={faGear} /></Button>
         </Box>
-        <SidebarDrawer isOpen={isOpen} onClose={onClose} />
+        <SidebarDrawer isOpen={isOpen} onClose={onClose} chatData={chatData} setChatData={setChatData} triggerRerender={triggerRerender} />
     </Flex>
 }

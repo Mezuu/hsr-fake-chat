@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, HStack, Input, Select, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Input, Select, Text } from "@chakra-ui/react";
 import { useState, useRef } from 'react'
 
 export function SendMessageBox({ chatData, setChatData, triggerRerender }:

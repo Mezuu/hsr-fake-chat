@@ -15,7 +15,7 @@ export function MessageBox({ index, name, imageSrc, isSender, message, updateMes
         return <Box className="px-4 py-0 relative">
             <Text className={`text-hsr-gray-light ${isSender ? 'text-right' : ''}`}>{name}</Text>
             <Box
-                className={[`mt-2 py-2 px-3 rounded-xl ${isSender ? 'bg-hsr-message-sender' : 'bg-hsr-message-receiver'} 
+                className={[`mt-2 py-1 px-3 rounded-xl w-max text-lg ${isSender ? 'bg-hsr-message-sender' : 'bg-hsr-message-receiver'} 
                 text-hsr-gray-dark`, isSender ? 'rounded-tr-none' : 'rounded-tl-none'].join(" ")}>
                 <Editable defaultValue={message} onChange={handleMessageChange}>
                     <EditablePreview />

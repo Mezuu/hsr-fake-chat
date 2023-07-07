@@ -3,8 +3,8 @@ import { Drawer, DrawerBody, DrawerCloseButton, DrawerOverlay, DrawerHeader, Dra
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
 
-export function SidebarDrawer({ isOpen, onClose }:
-    { isOpen: boolean, onClose: () => void }) {
+export function SidebarDrawer({ isOpen, onClose, chatData, setChatData, triggerRerender }:
+    { isOpen: boolean, onClose: () => void, chatData: ChatData, setChatData: React.Dispatch<any>, triggerRerender: () => void }) {
 
     return <Drawer
         isOpen={isOpen}
@@ -17,7 +17,7 @@ export function SidebarDrawer({ isOpen, onClose }:
             <DrawerHeader><FontAwesomeIcon icon={faGear} /> Settings</DrawerHeader>
 
             <DrawerBody>
-                <Sidebar />
+                <Sidebar chatData={chatData} setChatData={setChatData} triggerRerender={triggerRerender} />
             </DrawerBody>
 
             <DrawerFooter>

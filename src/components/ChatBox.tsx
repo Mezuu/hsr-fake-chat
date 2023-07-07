@@ -1,17 +1,9 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { MessageBox } from "./MessageBox";
 import { SendMessageBox } from "./SendMessageBox";
-import { useState } from 'react'
-import data from '../data/default.json'
 
-export function ChatBox() {
-
-    const [chatData, setChatData] = useState<ChatData>(data)
-    const [render, rerender] = useState<boolean>(false)
-
-    const triggerRerender = () => {
-        rerender(!render)
-    }
+export function ChatBox({ chatData, setChatData, triggerRerender }:
+    { chatData: ChatData, setChatData: React.Dispatch<any>, triggerRerender: () => void }) {
 
     function updateMessage(index: number, message: string) {
         let tempChatData = chatData
@@ -26,9 +18,9 @@ export function ChatBox() {
      */
     function ChatHeader() {
         return <Box className="w-full py-4 px-6 border-hsr-gray-light border-b-2">
-            <Heading as='h4' size='md' className="text-hsr-gray-dark">
+            <Text as='h5' className="text-hsr-gray-dark text-xl font-bold">
                 {chatData.receiver.name}
-            </Heading>
+            </Text>
             <Text className="text-hsr-gray-light">{chatData.receiver.bio}</Text>
         </Box>
     }

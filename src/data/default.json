@@ -1,7 +1,7 @@
 {
   "user": {
-    "name": "Mezuu",
-    "imageSrc": "/next.svg"
+    "name": "Trailblazer",
+    "imageSrc": "/assets/img/trailblazer.png"
   },
   "receiver": {
     "name": "Arlan",
@@ -11,15 +11,15 @@
   "messages": [
     {
       "isSender": false,
-      "message": "halo"
+      "message": "hello"
     },
     {
       "isSender": true,
-      "message": "halo juga"
+      "message": "hello, wyd?"
     },
     {
-      "isSender": true,
-      "message": "WHAT??????????ADADWAWKDAWLDJAWDWA"
+      "isSender": false,
+      "message": "nothing, just strolling around"
     }
   ]
 }
