@@ -1,0 +1,25 @@
+{
+  "user": {
+    "name": "Mezuu",
+    "imageSrc": "/next.svg"
+  },
+  "receiver": {
+    "name": "Arlan",
+    "bio": "Peppy's emergency contact",
+    "imageSrc": "/assets/img/arlan.png"
+  },
+  "messages": [
+    {
+      "isSender": false,
+      "message": "halo"
+    },
+    {
+      "isSender": true,
+      "message": "halo juga"
+    },
+    {
+      "isSender": true,
+      "message": "WHAT??????????ADADWAWKDAWLDJAWDWA"
+    }
+  ]
+}
