@@ -30,7 +30,7 @@ export function ChatBox({ chatData, setChatData, triggerRerender }:
     }
 
     return <Box ref={chatBoxRef} backgroundImage="url('/bg.png')" backgroundSize='cover'>
-        <Box className="p-12">
+        <Box className="py-12 lg:px-12">
             <Box className="bg-hsr-container-bg mx-4">
                 <Flex direction='column' justifyContent='space-between'>
                     <Box className="grow pb-8">

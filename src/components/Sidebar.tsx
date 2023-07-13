@@ -51,51 +51,52 @@ export function Sidebar({ chatData, setChatData, triggerRerender }:
         }
     })
 
-    return <Flex className="flex-col justify-between h-full p-2 text-gray-300">
-        <Box>
-            <Stack spacing={4}>
-                <FormControl>
-                    <FormLabel>Select Contact</FormLabel>
-                    <Select onChange={handleChangeContact}>
-                        {characters.map((item, i) => {
-                            return <option key={i} value={item.name}>{item.name}</option>
-                        })}
-                    </Select>
-                </FormControl>
-                <FormControl>
-                    <FormLabel>Trailblaze Name</FormLabel>
-                    <Input type="text" defaultValue="Trailblaze" onChange={handleChangeName} />
-                </FormControl>
-                <Stack>
-                    <Button colorScheme="blue" onClick={handleScreenshot}>
-                        Take Screenshot
-                    </Button>
-                    <Button colorScheme="red" onClick={handleDelete}>
-                        Delete All Messages
-                    </Button>
-                </Stack>
-                <Box>
-                    <Modal isOpen={isOpen} onClose={onClose} size='6xl'>
-                        <ModalOverlay />
-                        <ModalContent>
-                            <ModalHeader>Result</ModalHeader>
-                            <ModalCloseButton />
-                            <ModalBody>
-                                <Box ref={resultRef}>
-                                </Box>
-                            </ModalBody>
-                            <ModalFooter />
-                        </ModalContent>
-                    </Modal>
+    return <><Modal isOpen={isOpen} onClose={onClose} size='6xl'>
+        <ModalOverlay />
+        <ModalContent>
+            <ModalHeader>Result</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+                <Box ref={resultRef}>
                 </Box>
-            </Stack>
-        </Box>
-        <Box>
-            <Flex>
-                <Link href="https://github.com/Mezuu/hsr-fake-chat" isExternal>
-                    <Image src='/github-mark-white.svg' w={8} className="opacity-60 hover:opacity-80" />
-                </Link>
-            </Flex>
-        </Box>
-    </Flex>
+            </ModalBody>
+            <ModalFooter />
+        </ModalContent>
+    </Modal>
+        <Flex className="flex-col justify-between h-full p-2 text-gray-300">
+            <Box>
+                <Stack spacing={4}>
+                    <FormControl>
+                        <FormLabel>Select Contact</FormLabel>
+                        <Select onChange={handleChangeContact}>
+                            {characters.map((item, i) => {
+                                return <option key={i} value={item.name}>{item.name}</option>
+                            })}
+                        </Select>
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel>Trailblaze Name</FormLabel>
+                        <Input type="text" defaultValue="Trailblaze" onChange={handleChangeName} />
+                    </FormControl>
+                    <Stack>
+                        <Button colorScheme="blue" onClick={handleScreenshot}>
+                            Take Screenshot
+                        </Button>
+                        <Button colorScheme="red" onClick={handleDelete}>
+                            Delete All Messages
+                        </Button>
+                    </Stack>
+                    <Box>
+
+                    </Box>
+                </Stack>
+            </Box>
+            <Box>
+                <Flex>
+                    <Link href="https://github.com/Mezuu/hsr-fake-chat" isExternal>
+                        <Image src='/github-mark-white.svg' w={8} className="opacity-60 hover:opacity-80" />
+                    </Link>
+                </Flex>
+            </Box>
+        </Flex></>
 }
