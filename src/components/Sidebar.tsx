@@ -1,8 +1,16 @@
-import { FormControl, FormLabel, Select } from "@chakra-ui/react";
+import { Box, Button, Flex, FormControl, FormLabel, Image, Input, Link, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, Stack, useDisclosure } from "@chakra-ui/react";
 import characters from '../data/characters.json'
+import { useEffect, useRef, useState } from 'react'
+import { chatBoxRef } from "./ChatBox";
+import html2canvas from "html2canvas";
+import { sendMessageRef } from "./SendMessageBox";
 
 export function Sidebar({ chatData, setChatData, triggerRerender }:
     { chatData: ChatData, setChatData: React.Dispatch<any>, triggerRerender: () => void }) {
+
+    const [screenshot, takeScreenshot] = useState<boolean>(false)
+    const resultRef = useRef<HTMLDivElement>(null)
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
     function handleChangeContact(ev: any) {
         let tempChatData = chatData
@@ -13,13 +21,71 @@ export function Sidebar({ chatData, setChatData, triggerRerender }:
         triggerRerender()
     }
 
-    return <FormControl>
-        <FormLabel>Select Contact</FormLabel>
-        <Select onChange={handleChangeContact}>
-            {characters.map((item, i) => {
-                return <option key={i} value={item.name}>{item.name}</option>
-            })}
-        </Select>
-    </FormControl>
+    function handleChangeName(ev: any) {
+        let tempChatData = chatData
+        tempChatData.user.name = ev.target.value
+        setChatData(tempChatData)
+        triggerRerender()
+    }
 
+    function handleScreenshot() {
+        takeScreenshot(!screenshot)
+    }
+
+    useEffect(() => {
+        if (screenshot) {
+            onOpen()
+            sendMessageRef.current!.style.display = "none"
+            html2canvas(chatBoxRef.current!).then((canvas) => {
+                resultRef.current?.replaceChildren(canvas)
+                sendMessageRef.current!.style.display = "inline-block"
+            })
+            takeScreenshot(false)
+        }
+    })
+
+    return <Flex className="flex-col justify-between h-full p-2 text-gray-300">
+        <Box>
+            <Stack spacing={4}>
+                <FormControl>
+                    <FormLabel>Select Contact</FormLabel>
+                    <Select onChange={handleChangeContact}>
+                        {characters.map((item, i) => {
+                            return <option key={i} value={item.name}>{item.name}</option>
+                        })}
+                    </Select>
+                </FormControl>
+                <FormControl>
+                    <FormLabel>Trailblaze Name</FormLabel>
+                    <Input type="text" defaultValue="Trailblaze" onChange={handleChangeName} />
+                </FormControl>
+                <Box>
+                    <Button colorScheme="blue" onClick={handleScreenshot}>
+                        Take Screenshot
+                    </Button>
+                </Box>
+                <Box>
+                    <Modal isOpen={isOpen} onClose={onClose} size='6xl'>
+                        <ModalOverlay />
+                        <ModalContent>
+                            <ModalHeader>Result</ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody>
+                                <Box ref={resultRef}>
+                                </Box>
+                            </ModalBody>
+                            <ModalFooter />
+                        </ModalContent>
+                    </Modal>
+                </Box>
+            </Stack>
+        </Box>
+        <Box>
+            <Flex>
+                <Link href="https://github.com/Mezuu/hsr-fake-chat" isExternal>
+                    <Image src='/github-mark-white.svg' w={8} className="opacity-60 hover:opacity-80" />
+                </Link>
+            </Flex>
+        </Box>
+    </Flex>
 }

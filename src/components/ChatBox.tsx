@@ -1,10 +1,14 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { MessageBox } from "./MessageBox";
 import { SendMessageBox } from "./SendMessageBox";
+import { useRef } from "react";
+
+export var chatBoxRef: React.RefObject<HTMLDivElement>
 
 export function ChatBox({ chatData, setChatData, triggerRerender }:
     { chatData: ChatData, setChatData: React.Dispatch<any>, triggerRerender: () => void }) {
 
+    chatBoxRef = useRef<HTMLDivElement>(null)
     function updateMessage(index: number, message: string) {
         let tempChatData = chatData
         tempChatData.messages[index].message = message
@@ -25,25 +29,32 @@ export function ChatBox({ chatData, setChatData, triggerRerender }:
         </Box>
     }
 
-    return <Box className="bg-hsr-container-bg mx-4 h-[80vh] relative">
-        <ChatHeader />
-        <Box className="w-full h-10 absolute z-10 from-hsr-container-bg to-transparent bg-gradient-to-b"></Box>
-        <Box className="px-6 h-[70%] overflow-y-scroll">
-            {chatData.messages.map((item, i) => {
-                return <MessageBox key={i} index={i}
-                    name={item.isSender ? chatData.user.name
-                        : chatData.receiver.name}
-                    isSender={item.isSender}
-                    imageSrc={item.isSender ? chatData.user.imageSrc!
-                        : chatData.receiver.imageSrc}
-                    message={item.message}
-                    updateMessage={updateMessage}
-                />
-            })}
-        </Box>
-
-        <Box>
-            <SendMessageBox chatData={chatData} setChatData={setChatData} triggerRerender={triggerRerender} />
+    return <Box ref={chatBoxRef} backgroundImage="url('/bg.png')" backgroundSize='cover'>
+        <Box className="p-12">
+            <Box className="bg-hsr-container-bg mx-4">
+                <Flex direction='column' justifyContent='space-between'>
+                    <Box className="grow pb-8">
+                        <ChatHeader />
+                        {/* <Box className="h-10 absolute z-10 from-hsr-container-bg to-transparent bg-gradient-to-b"></Box> */}
+                        <Box className="px-6 overflow-y-scroll w-full max-h-[28em] min-h-[28em]">
+                            {chatData.messages.map((item, i) => {
+                                return <MessageBox key={i} index={i}
+                                    name={item.isSender ? chatData.user.name
+                                        : chatData.receiver.name}
+                                    isSender={item.isSender}
+                                    imageSrc={item.isSender ? chatData.user.imageSrc!
+                                        : chatData.receiver.imageSrc}
+                                    message={item.message}
+                                    updateMessage={updateMessage}
+                                />
+                            })}
+                        </Box>
+                    </Box>
+                    <Box className="w-full">
+                        <SendMessageBox chatData={chatData} setChatData={setChatData} triggerRerender={triggerRerender} />
+                    </Box>
+                </Flex>
+            </Box>
         </Box>
     </Box>
 }

@@ -21,8 +21,7 @@ export function SidebarDrawer({ isOpen, onClose, chatData, setChatData, triggerR
             </DrawerBody>
 
             <DrawerFooter>
-                <Button variant='outline' mr={3} onClick={onClose}>Cancel</Button>
-                <Button colorScheme="blue">Save</Button>
+                <Button variant='outline' mr={3} onClick={onClose}>Return</Button>
             </DrawerFooter>
         </DrawerContent>
     </Drawer>

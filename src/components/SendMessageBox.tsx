@@ -1,8 +1,11 @@
-import { Box, Button, HStack, Input, Select, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Input, Select, Text } from "@chakra-ui/react";
 import { useState, useRef } from 'react'
+
+export var sendMessageRef: React.RefObject<HTMLDivElement>
 
 export function SendMessageBox({ chatData, setChatData, triggerRerender }:
     { chatData: ChatData, setChatData: React.Dispatch<any>, triggerRerender: () => void }) {
+    sendMessageRef = useRef<HTMLDivElement>(null)
 
     const [message, setMessage] = useState<string>("")
     const [isSender, setIsSender] = useState<boolean>(true)
@@ -16,8 +19,8 @@ export function SendMessageBox({ chatData, setChatData, triggerRerender }:
         triggerRerender()
     }
 
-    return <Box className="p-4 border-t-[1]">
-        <HStack spacing={2}>
+    return <Box ref={sendMessageRef} className="p-4 border-t-[1] w-full">
+        <Flex className="flex-col lg:flex-row gap-2">
             <Box>
                 <Text className="text-hsr-gray-dark">Send as :</Text>
             </Box>
@@ -32,7 +35,7 @@ export function SendMessageBox({ chatData, setChatData, triggerRerender }:
             <Box flex={8} className="bg-hsr-message-receiver text-hsr-gray-light">
                 <Input ref={messageRef} placeholder="Input message here ..." onChange={(ev) => { setMessage(ev.target.value) }} />
             </Box>
-            <Button flex={1} colorScheme="blue" onClick={handleSendMessage}>Send</Button>
-        </HStack>
+            <Button flex={1} colorScheme="blue" onClick={handleSendMessage} className="py-2">Send</Button>
+        </Flex>
     </Box>
 }
