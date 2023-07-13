@@ -16,9 +16,10 @@ export function MessageBox({ index, name, imageSrc, isSender, message, updateMes
             <Text className={`text-hsr-gray-light ${isSender ? 'text-right' : ''}`}>{name}</Text>
             <Box className="w-full">
                 <Center
-                    className={[`mt-2 py-1 px-3 rounded-xl w-max text-lg ${isSender ? 'bg-hsr-message-sender' : 'bg-hsr-message-receiver'} 
+                    className={[`mt-2 py-1 px-3 rounded-xl w-max text-lg max-w-xl
+                    ${isSender ? 'bg-hsr-message-sender' : 'bg-hsr-message-receiver'} 
                 text-hsr-gray-dark`, isSender ? 'rounded-tr-none float-right' : 'rounded-tl-none'].join(" ")}>
-                    <Editable defaultValue={message} onChange={handleMessageChange}>
+                    <Editable className="break-all" defaultValue={message} onChange={handleMessageChange}>
                         <EditablePreview />
                         <EditableInput />
                     </Editable>
