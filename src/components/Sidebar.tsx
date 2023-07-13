@@ -32,6 +32,13 @@ export function Sidebar({ chatData, setChatData, triggerRerender }:
         takeScreenshot(!screenshot)
     }
 
+    function handleDelete() {
+        let tempChatData = chatData
+        tempChatData.messages = []
+        setChatData(tempChatData)
+        triggerRerender()
+    }
+
     useEffect(() => {
         if (screenshot) {
             onOpen()
@@ -59,11 +66,14 @@ export function Sidebar({ chatData, setChatData, triggerRerender }:
                     <FormLabel>Trailblaze Name</FormLabel>
                     <Input type="text" defaultValue="Trailblaze" onChange={handleChangeName} />
                 </FormControl>
-                <Box>
+                <Stack>
                     <Button colorScheme="blue" onClick={handleScreenshot}>
                         Take Screenshot
                     </Button>
-                </Box>
+                    <Button colorScheme="red" onClick={handleDelete}>
+                        Delete All Messages
+                    </Button>
+                </Stack>
                 <Box>
                     <Modal isOpen={isOpen} onClose={onClose} size='6xl'>
                         <ModalOverlay />
