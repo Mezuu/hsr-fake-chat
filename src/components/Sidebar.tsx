@@ -11,6 +11,7 @@ export function Sidebar({ chatData, setChatData, triggerRerender }:
     const [screenshot, takeScreenshot] = useState<boolean>(false)
     const resultRef = useRef<HTMLDivElement>(null)
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const [image, setImage] = useState<string>('')
 
     function handleChangeContact(ev: any) {
         let tempChatData = chatData
@@ -44,7 +45,7 @@ export function Sidebar({ chatData, setChatData, triggerRerender }:
             onOpen()
             sendMessageRef.current!.style.display = "none"
             html2canvas(chatBoxRef.current!).then((canvas) => {
-                resultRef.current?.replaceChildren(canvas)
+                setImage(canvas.toDataURL('image/png'))
                 sendMessageRef.current!.style.display = "inline-block"
             })
             takeScreenshot(false)
@@ -58,6 +59,7 @@ export function Sidebar({ chatData, setChatData, triggerRerender }:
             <ModalCloseButton />
             <ModalBody>
                 <Box ref={resultRef}>
+                    <Image src={image}></Image>
                 </Box>
             </ModalBody>
             <ModalFooter />
