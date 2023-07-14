@@ -15,7 +15,7 @@ function App() {
     rerender(!render)
   }
 
-  return <>
+  return <Box className='overflow-clip lg:overflow-auto'>
     <Navbar chatData={chatData} setChatData={setChatData} triggerRerender={triggerRerender} />
     <main className="backdrop-blur-0 mt-12">
       <Flex>
@@ -28,7 +28,7 @@ function App() {
       </Flex>
     </main>
     <Footer />
-  </>
+  </Box>
 }
 
 export default App

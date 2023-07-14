@@ -36,7 +36,7 @@ export function ChatBox({ chatData, setChatData, triggerRerender }:
                     <Box className="grow pb-8">
                         <ChatHeader />
                         {/* <Box className="h-10 absolute z-10 from-hsr-container-bg to-transparent bg-gradient-to-b"></Box> */}
-                        <Box className="lg:px-6 overflow-y-scroll w-full max-h-[24em] min-h-[24em] lg:max-h-[28em] lg:min-h-[28em]">
+                        <Box className="lg:px-6 overflow-y-scroll w-full max-h-[26em] min-h-[26em] lg:max-h-[28em] lg:min-h-[28em]">
                             {chatData.messages.map((item, i) => {
                                 return <MessageBox key={i} index={i}
                                     name={item.isSender ? chatData.user.name
