@@ -47,6 +47,7 @@ export function Sidebar({ chatData, setChatData, triggerRerender }:
             html2canvas(chatBoxRef.current!).then((canvas) => {
                 setImage(canvas.toDataURL('image/png'))
                 sendMessageRef.current!.style.display = "inline-block"
+                sendMessageRef.current!.setAttribute('width', "100")
             })
             takeScreenshot(false)
         }

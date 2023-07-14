@@ -19,10 +19,10 @@ export function SendMessageBox({ chatData, setChatData, triggerRerender }:
         triggerRerender()
     }
 
-    return <Box ref={sendMessageRef} className="p-4 border-t-[1] w-full">
+    return <Box ref={sendMessageRef} className="px-4 py-2 lg:py-4 border-t-[1]">
         <Flex className="flex-col lg:flex-row gap-2">
             <Box>
-                <Text className="text-hsr-gray-dark">Send as :</Text>
+                <Text className="text-hsr-gray-dark text-sm lg:text-base">Send as :</Text>
             </Box>
             <Box flex={2} className="bg-hsr-message-sender">
                 <Select
@@ -32,10 +32,12 @@ export function SendMessageBox({ chatData, setChatData, triggerRerender }:
                     <option value={chatData.user.name}>{chatData.user.name}</option>
                 </Select>
             </Box>
-            <Box flex={8} className="bg-hsr-message-receiver text-hsr-gray-light">
-                <Input ref={messageRef} placeholder="Input message here ..." onChange={(ev) => { setMessage(ev.target.value) }} />
-            </Box>
-            <Button flex={1} colorScheme="blue" onClick={handleSendMessage} className="py-2">Send</Button>
+            <Flex flex={8} gap={2}>
+                <Box flex={8} className="bg-hsr-message-receiver text-hsr-gray-light">
+                    <Input ref={messageRef} placeholder="Input message here ..." onChange={(ev) => { setMessage(ev.target.value) }} />
+                </Box>
+                <Button flex={2} colorScheme="blue" onClick={handleSendMessage} className="py-2">Send</Button>
+            </Flex>
         </Flex>
     </Box>
 }
